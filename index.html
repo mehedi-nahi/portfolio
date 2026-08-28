@@ -3,22 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Md Mehedi Alam Nahi — Backend Engineer</title>
+<title>Md Mehedi Alam Nahi — Software Engineer | AI/ML</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
+    --bg: hsl(250, 60%, 99%);
+    --surface: #ffffff;
+    --border: hsl(250, 12%, 90%);
+    --accent: hsl(250, 69%, 61%);
+    --accent-alt: hsl(250, 57%, 53%);
+    --accent-soft: hsl(250, 92%, 85%);
+    --text: hsl(250, 8%, 15%);
+    --muted: hsl(250, 8%, 34%);
+    --shadow: 0 12px 35px hsla(250, 69%, 61%, 0.12);
+    --project-one: hsl(250, 92%, 95%);
+    --project-two: hsl(340, 100%, 95%);
+    --project-three: hsl(190, 60%, 92%);
+    --sans: 'Poppins', sans-serif;
+    --serif: 'Poppins', sans-serif;
+    --mono: 'Poppins', sans-serif;
+    --page-pad: clamp(1.5rem, 8vw, 9rem);
+  }
+  [data-theme="dark"] {
     --bg: #0e0e0e;
     --surface: #161616;
-    --border: #242424;
-    --accent: #c8f542;
-    --text: #e8e8e8;
-    --muted: #6b6b6b;
-    --serif: 'DM Serif Display', serif;
-    --mono: 'DM Mono', monospace;
-    --sans: 'DM Sans', sans-serif;
+    --border: #2b2b2b;
+    --accent: hsl(250, 69%, 70%);
+    --accent-alt: hsl(250, 57%, 62%);
+    --accent-soft: hsl(250, 30%, 24%);
+    --text: hsl(250, 60%, 99%);
+    --muted: hsl(250, 8%, 82%);
+    --shadow: 0 12px 35px hsla(0, 0%, 0%, 0.22);
+    --project-one: hsl(250, 26%, 22%);
+    --project-two: hsl(340, 26%, 22%);
+    --project-three: hsl(190, 25%, 20%);
   }
 
   html { scroll-behavior: smooth; }
@@ -40,9 +61,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 4rem;
+    padding: 1.2rem var(--page-pad);
     border-bottom: 1px solid var(--border);
-    background: rgba(14,14,14,0.92);
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
     backdrop-filter: blur(12px);
   }
   nav .logo {
@@ -62,6 +83,36 @@
     transition: color 0.2s;
   }
   nav a:hover { color: var(--text); }
+  .theme-toggle { min-width: auto; padding: 0.55rem 0.9rem; font-size: 0.72rem; text-transform: none; border-radius: 0.5rem; }
+  .theme-toggle-label { margin-left: 0.35rem; }
+  .theme-toggle .sun { display: none; }
+  [data-theme="dark"] .theme-toggle .sun { display: inline; }
+  [data-theme="dark"] .theme-toggle .moon { display: none; }
+
+  /* STICKY BANNERS */
+  .banner-rail { display: contents; }
+  .sticky-banner {
+    position: sticky;
+    top: 4.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 3rem;
+    padding: 0.65rem var(--page-pad);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 0.8rem;
+    box-shadow: var(--shadow);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .sticky-banner + .sticky-banner { top: 7.9rem; }
+  .sticky-banner + .sticky-banner + .sticky-banner { top: 10.9rem; }
+  .sticky-banner strong { color: var(--accent); font-weight: 500; }
+  .sticky-banner a { color: var(--text); text-decoration: none; }
+  .sticky-banner a:hover { color: var(--accent); }
 
   /* HERO */
   #hero {
@@ -69,11 +120,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    padding: 8rem 4rem 4rem;
+    padding: 8rem var(--page-pad) 4rem;
     border-bottom: 1px solid var(--border);
     gap: 4rem;
   }
   .hero-left {}
+  .hero-profile { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+  .hero-profile img { width: 4.5rem; height: 4.5rem; object-fit: cover; object-position: center top; border-radius: 50%; border: 4px solid var(--accent-soft); box-shadow: var(--shadow); }
+  .hero-profile-name { font-size: 0.95rem; font-weight: 600; }
+  .hero-profile-role { color: var(--muted); font-size: 0.75rem; }
   .hero-label {
     font-family: var(--mono);
     font-size: 0.72rem;
@@ -100,6 +155,7 @@
     line-height: 1.8;
     margin-bottom: 2.5rem;
   }
+  .hero-desc, .project-desc, .experience-list, .award-text { color: var(--text); opacity: 1; }
   .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn {
     display: inline-flex;
@@ -114,33 +170,26 @@
     text-decoration: none;
     color: var(--text);
     transition: all 0.2s;
+    border-radius: 2rem;
     cursor: pointer;
     background: transparent;
   }
   .btn:hover { border-color: var(--accent); color: var(--accent); }
-  .btn-solid { background: var(--accent); color: #0e0e0e; border-color: var(--accent); }
+  .btn-solid { background: var(--accent); color: var(--bg); border-color: var(--accent); }
   .btn-solid:hover { background: transparent; color: var(--accent); }
 
-  .hero-right {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-  }
-  .stat-card {
-    padding: 1.5rem 2rem;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .stat-card:first-child { border-top: 2px solid var(--accent); }
-  .stat-label { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
-  .stat-value { font-family: var(--serif); font-size: 1.4rem; }
+  .hero-right { align-self: stretch; display: flex; align-items: center; }
+  .about-card { width: 100%; padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--border); border-radius: 1rem; background: var(--surface); box-shadow: var(--shadow); }
+  .about-kicker { color: var(--accent); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.8rem; }
+  .about-title { font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.2; margin-bottom: 1rem; }
+  .about-copy { color: var(--text); opacity: 0.84; font-size: 0.98rem; line-height: 1.9; }
+  .about-rule { height: 1px; margin: 1.5rem 0; background: var(--border); }
+  .about-meta { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .about-meta span { padding: 0.45rem 0.75rem; border-radius: 2rem; background: var(--accent-soft); color: var(--accent-alt); font-size: 0.72rem; font-weight: 600; }
 
   /* SECTIONS */
   section {
-    padding: 5rem 4rem;
+    padding: 5rem var(--page-pad);
     border-bottom: 1px solid var(--border);
   }
   .section-header {
@@ -157,26 +206,39 @@
   }
   .section-title {
     font-family: var(--serif);
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
     letter-spacing: -0.01em;
   }
 
   /* SKILLS */
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
   }
   .skill-block {
-    background: var(--bg);
-    padding: 2rem;
+    grid-column: span 4;
+    background: var(--surface);
+    padding: 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
   }
+  .skill-block:nth-child(2), .skill-block:nth-child(3) { grid-column: span 4; }
+  .skill-block:nth-child(4), .skill-block:nth-child(5), .skill-block:nth-child(6), .skill-block:nth-child(7) { grid-column: span 3; }
+  .skill-block:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .skill-block { transition: transform 0.2s, border-color 0.2s; }
+  .skill-index { color: var(--muted); font-size: 0.7rem; font-weight: 500; margin-bottom: 1rem; }
+  .skill-block-label { display: flex; align-items: center; justify-content: space-between; }
+  .skill-block-label::after { content: '↗'; color: var(--accent); font-size: 1rem; }
+  .skill-tags { min-height: 4.5rem; align-content: flex-start; }
+  .tag { background: var(--bg); }
+  .tag:hover { background: var(--accent-soft); }
   .skill-block-label {
     font-family: var(--mono);
-    font-size: 0.68rem;
+    font-size: 0.9rem;
     color: var(--accent);
+    font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 1rem;
@@ -184,35 +246,50 @@
   .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
   .tag {
     font-family: var(--mono);
-    font-size: 0.72rem;
-    padding: 0.3rem 0.7rem;
+    font-size: 0.82rem;
+    padding: 0.42rem 0.78rem;
     border: 1px solid var(--border);
-    color: var(--muted);
+    color: var(--text);
+    font-weight: 500;
     transition: all 0.2s;
+    border-radius: 2rem;
   }
   .tag:hover { border-color: var(--accent); color: var(--accent); }
 
   /* PROJECTS */
-  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
-  .project-card { background: var(--bg); padding: 2.5rem; position: relative; transition: background 0.3s; }
-  .project-card:hover { background: var(--surface); }
+  .projects-grid { display: block; }
+  .project-card { position: sticky; top: 8rem; min-height: 0; margin-bottom: 8vh; padding: clamp(1.75rem, 4vw, 3rem); border: 1px solid var(--border); background: var(--surface); display: grid; grid-template-columns: 0.8fr 1.2fr; align-content: start; gap: 1rem 3rem; transition: transform 0.3s, background 0.3s; }
+  .project-card:nth-child(1) { z-index: 1; border-top: 5px solid var(--accent); background: var(--project-one); }
+  .project-card:nth-child(2) { z-index: 2; border-top: 5px solid hsl(340, 69%, 61%); background: var(--project-two); }
+  .project-card:nth-child(3) { z-index: 3; border-top: 5px solid hsl(190, 69%, 45%); background: var(--project-three); }
+  .project-card:nth-child(4) { z-index: 4; border-top: 5px solid hsl(42, 85%, 55%); background: hsl(42, 100%, 94%); }
+  [data-theme="dark"] .project-card:nth-child(1), [data-theme="dark"] .project-card:nth-child(2), [data-theme="dark"] .project-card:nth-child(3) { background: var(--project-one); }
+  [data-theme="dark"] .project-card:nth-child(2) { background: var(--project-two); }
+  [data-theme="dark"] .project-card:nth-child(3) { background: var(--project-three); }
+  [data-theme="dark"] .project-card:nth-child(4) { background: hsl(42, 25%, 19%); }
+  .project-visual { grid-column: 1 / -1; width: 100%; margin-bottom: 0.5rem; overflow: hidden; border-radius: 0.7rem; border: 1px solid hsla(250, 8%, 15%, 0.12); }
+  .project-visual img { display: block; width: 100%; max-height: 15rem; object-fit: cover; }
+  .project-card .project-num, .project-card .project-title { grid-column: 1; }
+  .project-card .project-desc, .project-card .project-tech, .project-card .project-link { grid-column: 2; }
+  .project-card:hover { filter: saturate(1.08); }
   .project-num {
     font-family: var(--mono);
     font-size: 0.65rem;
-    color: var(--border);
+    color: var(--accent-alt);
     margin-bottom: 1.5rem;
     letter-spacing: 0.1em;
   }
   .project-title {
     font-family: var(--serif);
-    font-size: 1.4rem;
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    font-weight: 600;
     margin-bottom: 1rem;
     line-height: 1.2;
   }
   .project-desc {
-    color: var(--muted);
-    font-size: 0.88rem;
-    line-height: 1.8;
+    color: var(--text);
+    font-size: 1.05rem;
+    line-height: 1.85;
     margin-bottom: 1.8rem;
   }
   .project-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
@@ -228,6 +305,7 @@
     gap: 0.4rem;
   }
   .project-link:hover { opacity: 0.7; }
+  .projects-note { color: var(--muted); max-width: 48ch; margin: -2rem 0 3rem; font-size: 0.9rem; }
 
   /* EDUCATION */
   .edu-block {
@@ -250,7 +328,7 @@
     color: var(--muted);
     padding: 1rem;
     border-left: 2px solid var(--accent);
-    background: rgba(200,245,66,0.04);
+    background: var(--accent-soft);
     line-height: 1.7;
   }
   .edu-thesis strong { color: var(--text); }
@@ -283,7 +361,7 @@
   .award-text strong { color: var(--text); }
 
   /* CONTACT */
-  #contact { text-align: center; padding: 6rem 4rem; }
+  #contact { text-align: center; padding: 6rem var(--page-pad); }
   #contact .section-header { justify-content: center; }
   .contact-email {
     font-family: var(--serif);
@@ -297,9 +375,17 @@
   .contact-email:hover { color: var(--accent); }
   .contact-links { display: flex; justify-content: center; gap: 1rem; }
 
+  /* EXPERIENCE */
+  .experience-item { display: grid; grid-template-columns: 1fr auto; gap: 2rem; padding: 2.5rem; border: 1px solid var(--border); background: var(--surface); }
+  .experience-role { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 0.35rem; }
+  .experience-company, .experience-date { color: var(--muted); font-size: 0.85rem; }
+  .experience-date { font-family: var(--mono); text-align: right; white-space: nowrap; }
+  .experience-list { margin-top: 1.5rem; padding-left: 1.2rem; color: var(--muted); font-size: 0.9rem; }
+  .experience-list li + li { margin-top: 0.55rem; }
+
   /* FOOTER */
   footer {
-    padding: 2rem 4rem;
+    padding: 2rem var(--page-pad);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -323,15 +409,28 @@
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    nav ul { gap: 1.5rem; }
-    #hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 3rem; }
-    section { padding: 3rem 1.5rem; }
-    .projects-grid { grid-template-columns: 1fr; }
+    nav { padding: 1rem var(--page-pad); }
+    nav ul { gap: 1rem; }
+    nav ul li:nth-child(n+3) { display: none; }
+    .sticky-banner { top: 4.3rem; padding: 0.6rem var(--page-pad); font-size: 0.6rem; }
+    .sticky-banner + .sticky-banner { top: 7.25rem; }
+    .sticky-banner + .sticky-banner + .sticky-banner { top: 10.2rem; }
+    #hero { grid-template-columns: 1fr; padding: 7rem var(--page-pad) 3rem; gap: 3rem; }
+    section { padding: 3rem var(--page-pad); }
+    .project-card { top: 7rem; min-height: 0; margin-bottom: 5vh; grid-template-columns: 1fr; gap: 1rem; }
+    .project-card .project-num, .project-card .project-title, .project-card .project-desc, .project-card .project-tech, .project-card .project-link { grid-column: 1; }
+    .skill-block, .skill-block:nth-child(n) { grid-column: span 6; }
     .edu-block { grid-template-columns: 1fr; }
     .edu-cgpa { text-align: left; }
     .edu-cgpa-label { text-align: left; }
+    .experience-item { grid-template-columns: 1fr; }
+    .experience-date { text-align: left; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+  @media (max-width: 480px) {
+    .skill-block, .skill-block:nth-child(n) { grid-column: 1 / -1; }
+    .stat-card { padding: 1rem 1.25rem; gap: 1rem; }
+    .stat-value { font-size: 1rem; text-align: right; }
   }
 </style>
 </head>
@@ -341,55 +440,72 @@
 <nav>
   <div class="logo">MAN // Portfolio</div>
   <ul>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="btn theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme"><span class="moon">◐</span><span class="sun">☼</span><span class="theme-toggle-label">Dark mode</span></button>
 </nav>
+
+<div class="banner-rail" aria-label="Professional highlights">
+  <div class="sticky-banner"><strong>Available for backend & full-stack opportunities</strong><a href="#contact">Start a conversation ↗</a></div>
+  <div class="sticky-banner"><span>Currently: Trainee Frontend Developer</span><span>Dhaka, Bangladesh</span></div>
+  <div class="sticky-banner"><span>Focus: APIs · Security · Data</span><a href="CV_Md_Mehedi_Alam_Nahi.pdf" target="_blank">View résumé ↗</a></div>
+</div>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-left">
-    <p class="hero-label fade-in">Backend Engineer · Dhaka, Bangladesh</p>
-    <h1 class="hero-name fade-in delay-1">Md Mehedi<br>Alam <em>Nahi</em></h1>
+    <div class="hero-profile fade-in"><img src="profile.jpg" alt="Md. Mehedi Alam Nahi"><div><p class="hero-profile-name">Md. Mehedi Alam Nahi</p><p class="hero-profile-role">Software Engineer · AI/ML</p></div></div>
+    <p class="hero-label fade-in">Software Engineer · AI/ML · Dhaka, Bangladesh</p>
+    <h1 class="hero-name fade-in delay-1">Software Engineer<br><em>| AI/ML</em></h1>
     <p class="hero-desc fade-in delay-2">
-      Building scalable REST APIs with Node.js, Express.js, and MongoDB. Focused on database optimization, secure authentication, and clean backend architecture.
+      Md. Mehedi Alam Nahi builds scalable REST APIs, responsive products, and intelligent systems with Node.js, React, MongoDB, and PyTorch.
     </p>
     <div class="hero-links fade-in delay-3">
       <a href="mailto:nahimehedi@gmail.com" class="btn btn-solid">Email Me</a>
+      <a href="CV_Md_Mehedi_Alam_Nahi.pdf" target="_blank" class="btn">Download Résumé</a>
       <a href="https://github.com/mehedi-nahi" target="_blank" class="btn">GitHub ↗</a>
       <a href="https://linkedin.com" target="_blank" class="btn">LinkedIn ↗</a>
     </div>
   </div>
   <div class="hero-right fade-in delay-4">
-    <div class="stat-card">
-      <span class="stat-label">Primary Stack</span>
-      <span class="stat-value">Node.js + MongoDB</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-label">Degree</span>
-      <span class="stat-value">BSc in CSE</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-label">University</span>
-      <span class="stat-value" style="font-size:0.95rem;">United International University</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-label">Thesis Focus</span>
-      <span class="stat-value">Deepfake Voice Detection</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-label">Contact</span>
-      <span class="stat-value" style="font-size:0.95rem;">+880 1531949342</span>
+    <div class="about-card">
+      <p class="about-kicker">About me</p>
+      <h2 class="about-title">Engineering useful systems across the stack.</h2>
+      <p class="about-copy">Have hands-on experience building scalable REST APIs using Node.js, Express.js, and MongoDB. Experienced in responsive interfaces with React.js, Next.js, and Tailwind CSS, alongside state management and REST API integration. Focused on database optimization, secure authentication with JWT and RBAC, and implementing full stack systems. Passionate about writing clean, maintainable code and solving problems across the stack.</p>
+      <div class="about-rule"></div>
+      <div class="about-meta"><span>Full-stack opportunities</span><span>AI/ML opportunities</span><span>Dhaka, Bangladesh</span></div>
     </div>
   </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Work Experience</h2>
+  </div>
+  <article class="experience-item">
+    <div>
+      <h3 class="experience-role">Trainee Frontend Developer</h3>
+      <p class="experience-company">Panjeree Publications Ltd.</p>
+      <ul class="experience-list">
+        <li>Translated UI/UX designs into responsive interfaces using HTML, Tailwind CSS, and React.js.</li>
+        <li>Managed component data flow through props drilling and state management, improving reusability across the component hierarchy.</li>
+        <li>Integrated REST APIs on the frontend.</li>
+      </ul>
+    </div>
+    <p class="experience-date">01-06-2026 — Present</p>
+  </article>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-header">
-    <span class="section-num">01</span>
+    <span class="section-num">02</span>
     <h2 class="section-title">Technical Skills</h2>
   </div>
   <div class="skills-grid">
@@ -397,7 +513,20 @@
       <p class="skill-block-label">Languages</p>
       <div class="skill-tags">
         <span class="tag">JavaScript (ES6+)</span>
+        <span class="tag">TypeScript</span>
         <span class="tag">Python</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <p class="skill-block-label">Frontend & Frameworks</p>
+      <div class="skill-tags">
+        <span class="tag">React.js</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">HTML5</span>
+        <span class="tag">Tailwind CSS</span>
+        <span class="tag">Responsive Web Design</span>
+        <span class="tag">State Management</span>
+        <span class="tag">Component Architecture</span>
       </div>
     </div>
     <div class="skill-block">
@@ -417,13 +546,9 @@
       <p class="skill-block-label">AI & Machine Learning</p>
       <div class="skill-tags">
         <span class="tag">PyTorch</span>
-        <span class="tag">Transformers (HuggingFace)</span>
-        <span class="tag">LangChain (beginner)</span>
-        <span class="tag">EDA</span>
         <span class="tag">Feature Extraction</span>
-        <span class="tag">Librosa</span>
-        <span class="tag">NumPy</span>
-        <span class="tag">Pandas</span>
+        <span class="tag">Data Preprocessing</span>
+        <span class="tag">Data Visualization</span>
       </div>
     </div>
     <div class="skill-block">
@@ -439,9 +564,8 @@
       <p class="skill-block-label">Core Concepts</p>
       <div class="skill-tags">
         <span class="tag">OOP</span>
-        <span class="tag">MVC Architecture</span>
         <span class="tag">RBAC</span>
-        <span class="tag">Data Structures</span>
+        <span class="tag">Data Structures (DSA)</span>
         <span class="tag">System Design</span>
       </div>
     </div>
@@ -462,9 +586,10 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-header">
-    <span class="section-num">02</span>
+    <span class="section-num">03</span>
     <h2 class="section-title">Selected Projects</h2>
   </div>
+  <p class="projects-note">A few systems I have designed across backend architecture, full-stack product development, and secure API engineering.</p>
   <div class="projects-grid">
     <div class="project-card">
       <p class="project-num">PROJECT / 001</p>
@@ -479,21 +604,46 @@
         <span class="tag">JWT</span>
         <span class="tag">Nodemailer</span>
       </div>
-      <a href="https://github.com" target="_blank" class="project-link">View on GitHub ↗</a>
+      <a href="https://github.com/mehedi-nahi/Ecommerce-API-Backend-Project" target="_blank" class="project-link">View on GitHub ↗</a>
     </div>
     <div class="project-card">
       <p class="project-num">PROJECT / 002</p>
-      <h3 class="project-title">MernTaskAPI — Task Management System</h3>
+      <h3 class="project-title">Bariwala</h3>
       <p class="project-desc">
-        Secure task tracking application with Role-Based Access Control (RBAC) to enforce data privacy. API endpoints handle real-time task status updates and productivity analytics via MongoDB grouping mechanisms. Standardized error handling ensures consistent API responses across all endpoints.
+        Production-grade MERN property rental and marketplace platform covering listings, rental requests, invoice generation, reviews, marketplace features, and admin moderation across four role-based access levels. Includes 45+ RESTful endpoints and a structured invoice state machine.
       </p>
       <div class="project-tech">
         <span class="tag">Node.js</span>
         <span class="tag">Express.js</span>
-        <span class="tag">Mongoose</span>
-        <span class="tag">REST API</span>
+        <span class="tag">React 19</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">JWT</span>
       </div>
-      <a href="https://github.com" target="_blank" class="project-link">View on GitHub ↗</a>
+      <a href="https://github.com/mehedi-nahi/Bariwala-Full-Stack-" target="_blank" class="project-link">View on GitHub ↗</a>
+    </div>
+    <div class="project-card">
+      <p class="project-num">PROJECT / 003</p>
+      <h3 class="project-title">Portfolio Backend API</h3>
+      <p class="project-desc">Fully featured RESTful backend with modular CRUD endpoints for experiences, skills, blogs, and contact messages. Protected with HTTP-only cookie authentication, rate limiting, HPP, and MongoDB sanitization.</p>
+      <div class="project-tech">
+        <span class="tag">Node.js</span>
+        <span class="tag">Express.js</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">JWT</span>
+      </div>
+      <a href="https://github.com/mehedi-nahi/PortfolioAPI-Backend-Project" target="_blank" class="project-link">View on GitHub ↗</a>
+    </div>
+    <div class="project-card">
+      <p class="project-num">PROJECT / 004 · PANJEREE</p>
+      <h3 class="project-title">Praxix Shop</h3>
+      <p class="project-desc">A Next.js e-commerce interface developed during my trainee period at Panjeree Publications Ltd. Built responsive product and shopping experiences with reusable React components and a clean, modern customer-facing UI.</p>
+      <div class="project-tech">
+        <span class="tag">Next.js</span>
+        <span class="tag">React.js</span>
+        <span class="tag">Tailwind CSS</span>
+        <span class="tag">Responsive UI</span>
+      </div>
+      <a href="https://github.com/mehedi-nahi/praxix-shop" target="_blank" class="project-link">View on GitHub ↗</a>
     </div>
   </div>
 </section>
@@ -501,7 +651,7 @@
 <!-- EDUCATION -->
 <section id="education">
   <div class="section-header">
-    <span class="section-num">03</span>
+    <span class="section-num">04</span>
     <h2 class="section-title">Education</h2>
   </div>
   <div class="edu-block">
@@ -512,13 +662,17 @@
         <strong>Thesis:</strong> Deepfake Voice Detection — Developing a deep learning framework using PyTorch and Transformers to detect synthetic media artifacts by analyzing inconsistencies in audio features.
       </div>
     </div>
+    <div>
+      <p class="edu-cgpa">3.16</p>
+      <p class="edu-cgpa-label">CGPA / 4.00</p>
+    </div>
 
   </div>
 
   <!-- AWARDS inside education section -->
   <div style="margin-top: 3rem;">
     <div class="section-header" style="margin-bottom: 1.5rem;">
-      <span class="section-num">04</span>
+      <span class="section-num">05</span>
       <h2 class="section-title">Awards & Honors</h2>
     </div>
     <div class="awards-list">
@@ -541,7 +695,7 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-header">
-    <span class="section-num">05</span>
+    <span class="section-num">06</span>
     <h2 class="section-title">Get In Touch</h2>
   </div>
   <a href="mailto:nahimehedi@gmail.com" class="contact-email">nahimehedi@gmail.com</a>
@@ -558,6 +712,21 @@
   <span>© 2025 Md Mehedi Alam Nahi</span>
   <span>Backend Engineer · UIU Graduate</span>
 </footer>
+
+<script>
+  const themeToggle = document.querySelector('.theme-toggle');
+  const themeLabel = document.querySelector('.theme-toggle-label');
+  const savedTheme = localStorage.getItem('portfolio-theme');
+  document.documentElement.dataset.theme = savedTheme || 'dark';
+  themeLabel.textContent = document.documentElement.dataset.theme === 'dark' ? 'Light mode' : 'Dark mode';
+
+  themeToggle.addEventListener('click', () => {
+    const isDark = document.documentElement.dataset.theme === 'dark';
+    document.documentElement.dataset.theme = isDark ? 'light' : 'dark';
+    localStorage.setItem('portfolio-theme', isDark ? 'light' : 'dark');
+    themeLabel.textContent = isDark ? 'Dark mode' : 'Light mode';
+  });
+</script>
 
 </body>
 </html>
