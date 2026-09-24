@@ -47,12 +47,15 @@
     .hero-specialties span:not(:last-child):after { content:'•'; margin-left:7px; color:#94a3b8; }
     .hero-body { display:grid; grid-template-columns:1fr 1.4fr 1fr; align-items:center; gap:42px; margin-top:39px; }
     .rail-label { margin-bottom:8px; color:#94a3b8; font-size:9px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
-    .profile-rail p { margin:0 0 16px; color:#475569; font-size:11px; }
-    .focus-box { margin:8px 0; padding:9px; border:1px solid #dbeafe; border-radius:7px; background:#eff6ff; }
+    .profile-rail { padding:18px; border:1px solid #e5eaf2; border-radius:14px; background:linear-gradient(145deg,#fbfdff,#f8faff); box-shadow:0 6px 18px rgba(15,23,42,.04); }
+    .profile-rail p { margin:0 0 19px; color:#475569; font-size:12px; line-height:1.75; }
+    .profile-rail > p:first-of-type { font-weight:700; }
+    .focus-box { margin:9px 0; padding:11px; border:1px solid #dbeafe; border-radius:9px; background:#eff6ff; box-shadow:0 3px 8px rgba(37,99,235,.04); }
     .focus-box.violet { border-color:#ddd6fe; background:#f5f3ff; }
     .focus-box.backend { border-color:#bfdbfe; background:#eff6ff; }
-    .focus-box strong { display:block; color:#334155; font-size:10px; }
-    .focus-box span { display:block; color:#475569; font-size:9px; }
+    .focus-box strong { display:block; margin-bottom:3px; color:#1e3a8a; font-size:11px; }
+    .focus-box span { display:block; color:#475569; font-size:10px; line-height:1.5; }
+    .profile-rail .direct { margin-bottom:0; }
     .direct a { color:#2563eb; text-decoration:none; }
     .portrait-column { text-align:center; }
     .portrait-ring { position:relative; width:142px; height:142px; margin:0 auto 12px; padding:5px; border-radius:50%; background:linear-gradient(140deg,#8b5cf6,#ec4899 55%,#f59e0b); box-shadow:0 10px 22px rgba(99,102,241,.2); }
@@ -98,8 +101,8 @@
     .service-card h3 { margin-bottom:7px; color:var(--navy); font-size:15px; }
     .service-card .sub { color:#475569; font-size:10px; }
     .service-card p { margin:12px 0; color:#475569; font-size:11px; }
-    .service-bottom { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:auto; padding-top:14px; border-top:1px solid rgba(148,163,184,.18); color:#475569; font-size:9px; }
-    .more { padding:6px 10px; border:1px solid #cbd5e1; border-radius:999px; color:#475569; background:#fff; font-size:10px; text-decoration:none; }
+    .service-bottom { display:flex; align-items:center; justify-content:flex-start; gap:10px; margin-top:auto; padding-top:14px; border-top:1px solid rgba(148,163,184,.18); color:#475569; font-size:10px; }
+    .service-bottom .more { display:none; }
     .projects-head, .skills-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:24px; }
     .heading p { max-width:550px; margin-left:0; }
     .dark-action { padding:9px 13px; border-radius:999px; background:var(--navy); color:#fff; font-size:10px; font-weight:700; text-decoration:none; white-space:nowrap; }
@@ -154,6 +157,11 @@
     .fact { padding:14px; border-left:2px solid #c4b5fd; background:#fafaff; }
     .fact strong { display:block; font-size:12px; }
     .fact span { color:#718096; font-size:10px; }
+    .creator-section .fact:nth-child(2), .creator-section .fact:nth-child(4) { padding:17px 18px; border:1px solid #c4b5fd; border-left:4px solid #7c3aed; border-radius:10px; background:#fafaff; box-shadow:0 6px 16px rgba(124,58,237,.08); }
+    .creator-section .fact:nth-child(2) strong, .creator-section .fact:nth-child(4) strong { color:#5b21b6; font-size:14px; }
+    .creator-section .fact:nth-child(2) span, .creator-section .fact:nth-child(4) span { display:block; margin-top:4px; color:#475569; font-size:12px; line-height:1.55; }
+    .creator-section .fact:nth-child(4) { border-color:#fbcfe8; border-left-color:#ec4899; background:#fff7fb; box-shadow:0 6px 16px rgba(236,72,153,.08); }
+    .creator-section .fact:nth-child(4) strong { color:#be185d; }
     .education-grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:18px; }
     .education-card, .honors-card { padding:22px; border:1px solid #dfe6ef; border-radius:15px; background:#fff; }
     .education-card h3, .honors-card h3 { margin-bottom:6px; font-size:16px; }
@@ -161,6 +169,10 @@
     .cgpa { margin:18px 0 0 !important; color:#7c3aed !important; font-size:24px !important; font-weight:800; }
     .honor { padding:11px 0; border-bottom:1px solid #edf1f6; color:#52627b; font-size:10px; }
     .honor:last-child { border-bottom:0; }
+    .honors-card .honor { position:relative; margin:8px 0; padding:12px 12px 12px 36px; border:1px solid #ddd6fe; border-radius:9px; color:#334155; background:#fafaff; font-size:11px; font-weight:700; line-height:1.45; }
+    .honors-card .honor:before { content:'★'; position:absolute; left:12px; top:12px; color:#f59e0b; font-size:14px; }
+    .honors-card .honor:first-of-type { border-color:#fcd34d; background:#fffbeb; }
+    .honors-card .honor:nth-of-type(3) { border-color:#bfdbfe; background:#eff6ff; }
     .contact { padding:70px 0 78px; border-top:1px solid #edf1f6; }
     .contact-top { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:22px; }
     .contact-top h2 { margin:0; color:var(--navy); font-size:32px; letter-spacing:-.06em; }
@@ -168,6 +180,8 @@
     .contact-links { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:24px; }
     .contact-link { padding:7px 11px; border:1px solid #dbe4ee; border-radius:999px; color:#52627b; background:#fff; font-size:10px; text-decoration:none; }
     .contact-grid { display:grid; grid-template-columns:1.1fr .8fr; gap:34px; align-items:center; }
+    .contact-grid { grid-template-columns:1fr; }
+    .contact-visual { display:none; }
     .message-box { padding:21px; border:1px solid #e4eaf2; border-radius:15px; background:#fbfdff; }
     .message-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; font-size:10px; font-weight:800; }
     .message-head span { padding:4px 7px; border-radius:999px; color:#059669; background:#ecfdf5; font-size:8px; }
@@ -310,7 +324,7 @@
     .resume-project + .resume-project { margin-top:13px; }
     @media (max-width:680px) { .resume-backdrop { padding:10px; } .resume-window { height:94vh; } .resume-scroll { padding:12px; } .resume-paper { min-height:0; padding:28px 22px; } .resume-job { display:block; } .resume-date { display:block; margin-top:3px; } .resume-skills { grid-template-columns:1fr; gap:2px; } .resume-skills b { margin-top:5px; } }
     @media (max-width:1000px) { .nav-tabs { display:none; } .hero-body { grid-template-columns:1fr; gap:30px; } .profile-rail { order:2; } .portrait-column { order:1; } .metric-rail { order:3; grid-template-columns:repeat(4,1fr); gap:16px; } .four-grid { grid-template-columns:repeat(2,1fr); } .stack-grid { grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:680px) { .wrap { width:min(100% - 32px,540px); } header { padding:8px 0; } .brand-copy span { display:none; } .nav-button:first-child { display:none; } .hero { padding:52px 0 55px; } .hero:before { left:7%; } .hero:after { right:8%; } .hero-title h1 { font-size:44px; } .hero-title h2 { font-size:13px; } .hero-body { grid-template-columns:1fr; gap:30px; margin-top:34px; } .profile-rail { order:2; } .portrait-column { order:1; } .metric-rail { order:3; grid-template-columns:repeat(2,1fr); gap:18px 8px; } .projects-head, .skills-head, .contact-top { display:block; } .projects-head .dark-action { display:inline-block; margin-top:14px; } .four-grid, .project-grid, .competency-grid, .education-grid, .contact-grid { grid-template-columns:1fr; } .stack-grid { grid-template-columns:repeat(2,1fr); } .project-top { height:120px; } .experience-top { align-items:start; } .experience-title { align-items:start; } .date { max-width:105px; } .creator-grid { grid-template-columns:1fr; gap:26px; } .contact-top h2 { font-size:29px; margin-bottom:8px; } .form-row { grid-template-columns:1fr; } .footer-grid { grid-template-columns:1fr 1fr; } .footer-grid > div:first-child { grid-column:1/-1; } .footer-bottom { display:block; } .footer-bottom span { display:block; } .footer-bottom span + span { margin-top:5px; } }
+    @media (max-width:680px) { .wrap { width:min(100% - 32px,540px); } header { padding:8px 0; } .brand-copy span { display:none; } .nav-button:first-child { display:none; } .hero { padding:52px 0 55px; } .hero:before { left:7%; } .hero:after { right:8%; } .hero-status { display:none; } .hero-title h1 { font-size:44px; } .hero-title h2 { font-size:13px; } .hero-body { grid-template-columns:1fr; gap:30px; margin-top:34px; } .profile-rail { order:2; } .portrait-column { order:1; } .metric-rail { order:3; grid-template-columns:repeat(2,1fr); gap:18px 8px; } .projects-head, .skills-head, .contact-top { display:block; } .projects-head .dark-action { display:inline-block; margin-top:14px; } .four-grid, .project-grid, .competency-grid, .education-grid, .contact-grid { grid-template-columns:1fr; } .stack-grid { grid-template-columns:repeat(2,1fr); } .project-top { height:120px; } .experience-top { align-items:start; } .experience-title { align-items:start; } .date { max-width:105px; } .creator-grid { grid-template-columns:1fr; gap:26px; } .contact-top h2 { font-size:29px; margin-bottom:8px; } .form-row { grid-template-columns:1fr; } .footer-grid { grid-template-columns:1fr 1fr; } .footer-grid > div:first-child { grid-column:1/-1; } .footer-bottom { display:block; } .footer-bottom span { display:block; } .footer-bottom span + span { margin-top:5px; } }
   </style>
 </head>
 <body>
@@ -350,7 +364,7 @@
   <footer><div class="footer-grid wrap"><div><a class="brand" href="#overview"><span class="brand-mark">MN</span><span class="brand-copy"><strong>Md. Mehedi Alam Nahi</strong><span>Frontend Developer · AI/ML</span></span></a><p>Frontend Developer building full-stack products and exploring intelligent systems from Dhaka, Bangladesh.</p></div><div><h3>Navigation</h3><a href="#overview">Overview</a><a href="#works">Projects & Works</a><a href="#skills">Skills</a><a href="#experience">Experience</a></div><div><h3>Services</h3><a href="#services">Frontend Development</a><a href="#services">RAG & AI Applications</a><a href="#services">Full-stack Systems</a><a href="#services">Data & Security</a></div><div><h3>Professional channels</h3><a href="https://github.com/mehedi-nahi" target="_blank" rel="noreferrer">⌘ GitHub Repositories</a><a href="mailto:nahimehedi@gmail.com">✉ Email</a><a href="CV-Md_Mehedi_Alam_Nahi.pdf" target="_blank" rel="noreferrer">▣ Official Resume</a><a href="tel:+8801531949342">♧ Call / WhatsApp</a></div></div><div class="footer-bottom wrap"><span>© 2026 Md. Mehedi Alam Nahi</span><span>● Available for frontend opportunities</span></div></footer>
   <script>
     document.querySelectorAll('.brand-copy span').forEach((node) => { node.textContent = 'Full-stack Developer · AI/ML'; });
-    document.querySelector('.hero-status .status.live').textContent = '● Currently working as Full-stack Developer';
+    document.querySelector('.hero-status .status.live').textContent = '● Currently working as Frontend Developer';
     document.querySelector('.hero-title h2').textContent = 'Full-stack Developer & AI/ML Engineer';
     document.querySelector('.profile-rail .focus-box.violet').insertAdjacentHTML('beforebegin', '<div class="focus-box backend"><strong>▣ Backend Architecture</strong><span>Node.js, Express.js, MongoDB, aggregation, indexing, JWT, RBAC, and API security.</span></div>');
     const masteryGrid = document.querySelector('#mastery .stack-grid');
