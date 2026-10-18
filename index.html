@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Md. Mehedi Alam Nahi, Full-stack Developer and AI/ML engineer.">
   <title>Md. Mehedi Alam Nahi | Full-stack Developer</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238da2ff'/%3E%3Cstop offset='1' stop-color='%23c6b8ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='800' text-anchor='middle' fill='%230a0b10'%3EMN%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#0a0b0f">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Md. Mehedi Alam Nahi | Full-stack Developer">
+  <meta property="og:description" content="Frontend and full-stack developer with an AI/ML foundation (RAG, LangChain, LangGraph, PyTorch). Based in Dhaka, Bangladesh.">
+  <meta name="twitter:card" content="summary">
   <script>try{var t=localStorage.getItem("theme");document.documentElement.dataset.theme=t||"dark"}catch(e){document.documentElement.dataset.theme="dark"}document.documentElement.classList.add("loading")</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -358,14 +364,31 @@
     .c-resume:hover { transform:translateY(-2px); border-color:var(--accent); }
     .contact-form { display:flex; flex-direction:column; }
     .flabel { display:block; margin:16px 0 8px; color:var(--muted); font-size:12px; font-weight:700; }
-    .focus-chips { display:flex; flex-wrap:wrap; gap:8px; }
-    label.fchip { position:relative; display:inline-block; margin:0; cursor:pointer; }
-    .fchip input { position:absolute; opacity:0; width:0; height:0; }
-    .fchip span { display:inline-block; padding:9px 15px; border:1px solid var(--line); border-radius:999px; color:var(--muted); background:var(--bg); font-size:13px; font-weight:600; transition:background .25s, color .25s, border-color .25s, transform .25s var(--ease); }
-    .fchip:hover span { border-color:var(--accent); color:var(--text); }
-    .fchip:active span { transform:scale(.95); }
-    .fchip input:checked + span { color:var(--btn-text); border-color:var(--btn); background:var(--btn); }
-    .fchip input:focus-visible + span { outline:2px solid var(--accent); outline-offset:2px; }
+    .fsel { position:relative; }
+    .fsel-btn { display:flex; align-items:center; gap:14px; width:100%; padding:10px 14px 10px 10px; border:1px solid var(--line); border-radius:16px; color:var(--text); background:var(--bg); font-family:var(--font); text-align:left; cursor:pointer; transition:border-color .25s, box-shadow .25s, background .25s; }
+    .fsel-btn:hover { border-color:var(--t1b); }
+    .fsel.open .fsel-btn, .fsel-btn:focus-visible { border-color:var(--accent); box-shadow:0 0 0 4px var(--t1); outline:0; }
+    .fsel-ic, .fo-ic { flex:none; display:grid; place-items:center; width:40px; height:40px; border-radius:12px; color:#fff; background:var(--grad); }
+    .fsel-ic svg, .fo-ic svg { width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+    .fsel-ic.pop { animation:fselPop .5s var(--ease); }
+    @keyframes fselPop { 0% { transform:scale(.6) rotate(-14deg); } 60% { transform:scale(1.12) rotate(4deg); } 100% { transform:none; } }
+    .fsel-txt { flex:1; min-width:0; }
+    .fsel-txt strong, .fo-txt strong { display:block; font-size:14.5px; font-weight:700; letter-spacing:-.01em; line-height:1.3; }
+    .fsel-txt small, .fo-txt small { display:block; color:var(--muted); font-size:12px; font-weight:500; line-height:1.35; }
+    .fsel-chev { flex:none; width:18px; height:18px; fill:none; stroke:var(--muted); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; transition:transform .45s var(--ease), stroke .25s; }
+    .fsel.open .fsel-chev { transform:rotate(180deg); stroke:var(--accent); }
+    .fsel-list { position:absolute; z-index:30; left:0; right:0; top:calc(100% + 8px); margin:0; padding:6px; list-style:none; border:1px solid var(--g-bd); border-radius:18px; background:color-mix(in srgb,var(--card) 90%,transparent); -webkit-backdrop-filter:blur(22px) saturate(170%); backdrop-filter:blur(22px) saturate(170%); box-shadow:inset 0 1px 1px var(--g-hi), 0 28px 50px -18px rgba(0,0,0,.55); transform-origin:50% 0; transform:translateY(-8px) scale(.96); opacity:0; visibility:hidden; transition:opacity .25s ease, transform .45s var(--ease), visibility 0s .25s; outline:0; }
+    .fsel.open .fsel-list { opacity:1; visibility:visible; transform:none; transition:opacity .25s ease, transform .45s var(--ease), visibility 0s; }
+    .fsel.up .fsel-list { top:auto; bottom:calc(100% + 8px); transform-origin:50% 100%; transform:translateY(8px) scale(.96); } .fsel.up.open .fsel-list { transform:none; }
+    .fsel-hl { position:absolute; left:6px; right:6px; top:0; height:56px; border-radius:13px; background:var(--t1); border:1px solid var(--t1b); opacity:0; transition:transform .3s var(--ease), height .3s var(--ease), opacity .2s; pointer-events:none; }
+    .fsel-list li { position:relative; display:flex; align-items:center; gap:12px; padding:8px 10px; border-radius:13px; cursor:pointer; opacity:0; transform:translateY(8px); transition:opacity .3s ease, transform .45s var(--ease); }
+    .fsel.open .fsel-list li { opacity:1; transform:none; transition-delay:calc(var(--k,0) * .035s + .05s); }
+    .fo-ic { width:36px; height:36px; border-radius:11px; color:var(--accent); background:var(--t1); border:1px solid var(--t1b); transition:background .25s, color .25s, transform .4s var(--ease); }
+    .fsel-list li:hover .fo-ic, .fsel-list li.act .fo-ic { transform:rotate(-8deg) scale(1.08); }
+    .fsel-list li[aria-selected="true"] .fo-ic { color:#fff; background:var(--grad); border-color:transparent; }
+    .fo-txt { flex:1; min-width:0; }
+    .fo-ck { flex:none; width:18px; height:18px; fill:none; stroke:var(--accent); stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:24; stroke-dashoffset:24; transition:stroke-dashoffset .45s var(--ease); }
+    .fsel-list li[aria-selected="true"] .fo-ck { stroke-dashoffset:0; }
     .contact-form .grow { display:flex; flex-direction:column; flex:1; }
     .contact-form .grow textarea { flex:1; min-height:140px; }
     .contact-form .send { margin-top:22px; }
@@ -398,6 +421,10 @@
       .project:hover { transform:none; }
     }
     @media (hover:none) { .expand-hint { opacity:1; transform:none; } }
+    @media (max-width:820px) {
+      .footer-links { gap:2px 20px; } .footer-links a { display:inline-block; padding:12px 2px; } .footer-links a:after { bottom:6px; }
+      .c-txt a { padding:8px 0; margin:-8px 0; } .link-arrow { padding:12px 0; margin:-12px 0; } .copy-btn { padding:10px 15px; }
+    }
     @media (max-width:680px) { .project-grid { gap:14px; } .project-footer { gap:10px; align-items:flex-end; } .project-footer .chips { flex:1; min-width:0; } .link-arrow { padding-bottom:4px; } }
 
     /* guided mobile sections: one focused view at a time instead of one long scroll */
@@ -536,6 +563,12 @@
     @media (max-width:680px) { .resume-backdrop { padding:10px; } .resume-window { height:94vh; } .resume-scroll { padding:12px; } .resume-paper { min-height:0; padding:28px 22px; } .resume-job { display:block; } .resume-date { display:block; margin-top:3px; } .resume-skills { grid-template-columns:minmax(0,1fr); gap:2px; } .resume-skills b { margin-top:5px; } }
 
     @media (max-width:1240px) { .brand-copy span { display:none; } }
+    @media (max-width:1000px) and (orientation:landscape) and (max-height:540px) {
+      html .hero-card { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); min-height:0; }
+      html .hero-copy { padding:28px 20px 20px 32px; } html .hero-visual { order:0; padding:24px 24px 24px 0; } html .hero-frame { width:min(100%,190px); }
+      html .hero-orbit.o2, html .hero-stack, html .hero-tag { display:none; } html .hero-orbit { width:250px; height:250px; margin:-125px 0 0 -125px; }
+      html .hero-h1 { font-size:clamp(28px,5vw,44px); } html .hero-lead { font-size:14px; margin:12px 0 14px; }
+    }
     @media (max-width:1260px) { .nav-tabs { display:none; } .menu-btn { display:inline-flex; } }
     @media (max-width:380px) { .ft-long { display:none; } .nav-tools { gap:6px; } }
     @media (max-width:520px) { .brand-copy { display:none; } .nav-tools { margin-left:auto; } .nav-button.dark { padding:9px 14px; } }
@@ -556,17 +589,18 @@
       .wrap { width:min(100% - 32px,540px); }
       .brand-copy span, .nav-button:not(.dark):not(#theme-toggle):not(.menu-btn) { display:none; }
       .nav-button.dark { padding:9px 12px; font-size:12px; }
-      .hero-card { border-radius:24px; }
-      .hero-visual { position:absolute; top:18px; right:18px; z-index:3; width:84px; padding:0; display:block; } .hero-frame { width:84px; }
-      .hero-orbit, .hero-tag, .hero-stack, .hero-rotor { display:none; } .hero-ring { inset:-4px; } .hero-frame:before { inset:-30%; }
-      .hero-copy { padding:18px 18px 4px; } .hero-badge { padding:5px 11px; font-size:11px; }
-      .hero-hello { margin:12px 0 8px; padding-right:98px; font-size:13.5px; min-height:38px; }
-      .hero-h1 { font-size:clamp(27px,calc((100vw - 74px) / 7.6),44px); line-height:1.03; }
-      .hero-lead { margin:10px 0 12px; font-size:13.5px; line-height:1.55; display:-webkit-box; -webkit-line-clamp:3; line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-      .hero-ai { margin:0 0 14px; gap:5px; } .hero-ai small { display:none; } .hero-ai span { padding:4px 9px; font-size:11px; }
-      .hero-actions { gap:8px; flex-wrap:nowrap; } .eye-btn { display:none; } .btn-pill, .btn-ghost { flex:1; justify-content:center; padding:11px 14px; font-size:13px; }
-      .hero-stats { grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; padding-top:14px; }
-      .stat { margin:0; padding:6px 0 8px; } .stat:after { left:0; right:0; } .stat strong { font-size:20px; } .stat span { font-size:10px; line-height:1.25; }
+      .hero-card { border-radius:24px; min-height:calc(100vh - 104px); min-height:calc(100svh - 104px); }
+      .hero-visual { order:-1; padding:24px 14px 12px; } .hero-frame { width:132px; }
+      .hero-orbit, .hero-tag, .hero-stack { display:none; } .hero-ring { inset:-7px; }
+      .hero-rotor { bottom:-16px; gap:8px; padding:7px 14px; font-size:12px; }
+      .hero-copy { padding:18px 22px 6px; flex:1; } .hero-badge { padding:6px 13px; font-size:11.5px; }
+      .hero-hello { margin:12px 0 6px; font-size:15px; }
+      .hero-h1 { font-size:clamp(30px,calc((100vw - 64px) / 7.9),46px); line-height:1.04; }
+      .hero-lead { margin:12px 0 12px; font-size:14px; line-height:1.58; }
+      .hero-ai { margin:0 0 16px; gap:6px; flex-wrap:wrap; } .hero-ai span { padding:5px 11px; font-size:12px; }
+      .hero-actions { gap:10px; flex-wrap:nowrap; } .eye-btn { display:none; } .btn-pill, .btn-ghost { flex:1; justify-content:center; padding:14px 16px; font-size:14px; }
+      .hero-stats { grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; padding-top:18px; margin-top:auto; }
+      .stat { margin:0; padding:8px 0 10px; } .stat:after { left:0; right:0; } .stat strong { font-size:23px; } .stat span { font-size:10.5px; line-height:1.25; }
         .ask { left:14px; width:calc(100% - 84px); transform:none; } .toast { bottom:80px; }
       .x-hero { min-height:180px; padding:22px; } .x-body { padding:22px; } .x-hero b { font-size:120px; }
       .btn-pill, .btn-ghost { padding:13px 22px; }
@@ -679,7 +713,8 @@
     .mm-btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; padding:12px 14px; border:1px solid var(--line); border-radius:999px; color:var(--text); background:var(--card); font:700 13px var(--font); text-decoration:none; transition:transform .25s var(--ease), border-color .25s; }
     .mm-btn:active { transform:scale(.95); } .mm-btn.primary { border-color:var(--btn); color:var(--btn-text); background:var(--btn); }
     .mm-btn b { transition:transform .3s var(--ease); } .mm-btn:hover b { transform:translateX(4px); }
-    .mm-meta { margin:10px 4px 2px; color:var(--muted); font-size:12px; text-align:center; }
+    .mm-meta { display:flex; align-items:center; justify-content:space-between; gap:10px; margin:10px 4px 2px; color:var(--muted); font-size:12px; }
+    .mm-soc { display:flex; gap:6px; } .mm-soc a { display:grid; place-items:center; width:30px; height:30px; border:1px solid var(--line); border-radius:50%; color:var(--text); font-size:11px; font-weight:800; transition:border-color .25s, color .25s, transform .25s var(--ease); } .mm-soc a:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
     .mm-meta a { color:var(--muted); text-decoration:none; } .mm-meta a:hover { color:var(--accent); }
     body.menu-open { overflow:hidden; }
     @media (min-width:1261px) { .mobile-menu { display:none; } }
@@ -705,6 +740,11 @@
       .ask { bottom:max(18px,env(safe-area-inset-bottom)); }
       @media (max-width:680px) { #toTop { bottom:max(14px,env(safe-area-inset-bottom)); } .share { bottom:calc(max(14px,env(safe-area-inset-bottom)) + 54px); } }
     }
+    /* short landscape screens: keep floating UI out of the way */
+    @media (max-height:520px) and (orientation:landscape) {
+      .share { display:none; } .ask { left:14px; width:min(280px,46%); transform:none; bottom:8px; } .ask-bar { padding:3px 3px 3px 12px; } .ask-bar input { padding:6px 0; font-size:13px; } .ask-bar button { width:30px; height:30px; }
+      #toTop { right:12px; bottom:10px; } .toast { bottom:58px; }
+    }
     @media (prefers-reduced-motion: reduce) {
       *, *:before, *:after { animation:none !important; transition:none !important; }
       #loader { display:none; } html { scroll-behavior:auto; }
@@ -717,7 +757,7 @@
   <div id="progress"></div>
   <div id="glow" aria-hidden="true"></div>
   <header id="top"><nav class="nav wrap"><a class="brand" href="#overview"><span class="brand-mark">MN</span><span class="brand-copy"><strong>Md. Mehedi Alam Nahi</strong><span>Full-stack Developer · AI/ML</span></span></a><div class="nav-tabs"><span class="nav-indicator"></span><a class="active" href="#overview">Home</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#services">Services</a><a href="#works">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div><div class="nav-tools"><a class="nav-button" href="CV-Md_Mehedi_Alam_Nahi.pdf" target="_blank" rel="noreferrer">Resume</a><a class="nav-button dark mag" href="#contact"><b>✣</b> 30s<span class="ft-long"> Fast-Track</span></a><button class="nav-button theme-switch" id="theme-toggle" type="button" role="switch" aria-checked="true" aria-label="Toggle dark mode" title="Toggle dark mode"><span class="ts-thumb"><svg class="th-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="th-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 019.500 4 8 8 0 1020 14.500z"/></svg></span></button><button class="nav-button menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button></div></nav></header>
-  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation"><div class="mm-panel"><div class="mm-links"><a href="#overview" style="--i:0"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg><span>Home</span></a><a href="#about" style="--i:1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg><span>About</span></a><a href="#experience" style="--i:2"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2M3 13h18"/></svg><span>Experience</span></a><a href="#education" style="--i:3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg><span>Education</span></a><a href="#services" style="--i:4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg><span>Services</span></a><a href="#works" style="--i:5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg><span>Projects</span></a><a href="#skills" style="--i:6"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8l-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/></svg><span>Skills</span></a><a href="#contact" style="--i:7"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg><span>Contact</span></a></div><div class="mm-foot"><div class="mm-actions"><a class="mm-btn primary" href="#contact">Let's talk <b>→</b></a><a class="mm-btn" href="CV-Md_Mehedi_Alam_Nahi.pdf" target="_blank" rel="noreferrer">Resume</a></div><p class="mm-meta"><a href="mailto:nahimehedi@gmail.com">nahimehedi@gmail.com</a></p></div></div></nav>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation"><div class="mm-panel"><div class="mm-links"><a href="#overview" style="--i:0"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg><span>Home</span></a><a href="#about" style="--i:1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg><span>About</span></a><a href="#experience" style="--i:2"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2M3 13h18"/></svg><span>Experience</span></a><a href="#education" style="--i:3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg><span>Education</span></a><a href="#services" style="--i:4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg><span>Services</span></a><a href="#works" style="--i:5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg><span>Projects</span></a><a href="#skills" style="--i:6"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8l-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/></svg><span>Skills</span></a><a href="#contact" style="--i:7"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg><span>Contact</span></a></div><div class="mm-foot"><div class="mm-actions"><a class="mm-btn primary" href="#contact">Let's talk <b>→</b></a><a class="mm-btn" href="CV-Md_Mehedi_Alam_Nahi.pdf" target="_blank" rel="noreferrer">Resume</a></div><p class="mm-meta"><a href="mailto:nahimehedi@gmail.com">nahimehedi@gmail.com</a><span class="mm-soc"><a href="https://www.linkedin.com/in/md-mehedi-alam-nahi/" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a><a href="https://github.com/mehedi-nahi" target="_blank" rel="noreferrer" aria-label="GitHub">GH</a></span></p></div></div></nav>
   <main>
     <section class="hero-section" id="overview"><div class="wrap">
       <div class="hero-card" id="heroCard">
@@ -734,7 +774,7 @@
       <div class="marquee" aria-hidden="true"><div class="marquee-track"><div class="mq-set"><span>React</span><span>Next.js</span><span>TypeScript</span><span>Tailwind CSS</span><span>Redux Toolkit</span><span>TanStack Query</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>MySQL</span><span>LangChain</span><span>LangGraph</span><span>RAG</span><span>PyTorch</span><span>Git</span><span>Postman</span></div></div></div>
     </div></section>
 
-    <section class="band" id="about"><div class="wrap about-grid"><div><div class="sec-head" style="margin-bottom:26px"><span class="eyebrow">About</span><h2>Clean code across the whole stack</h2></div><p class="about-text">Hands-on experience building scalable <b>REST APIs</b> with <b>Node.js, Express.js</b> and <b>MongoDB</b>, and responsive interfaces with <b>React.js, Next.js</b> and <b>Tailwind CSS</b>, alongside state management and REST API integration. Focused on database optimization, secure authentication with <b>JWT RBAC</b>, and implementing full-stack systems. Passionate about writing clean, maintainable code and solving problems across the stack.</p><button class="read-more" type="button" aria-expanded="false">Read more <span>↓</span></button><div class="chips" style="margin-top:24px"><span class="chip">Backend Architecture</span><span class="chip">AI &amp; ML</span><span class="chip">Agentic AI</span><span class="chip">Generative AI</span><span class="chip">System Design</span><span class="chip">API Scalability</span></div></div><div class="facts"><div class="fact"><small>Role</small><span>Frontend Developer<em>Panjeree Publications Ltd. · since 01-09-2026</em></span></div><div class="fact"><small>Education</small><span>B.Sc. in CSE, UIU<em>CGPA 3.16 / 4.00</em></span></div><div class="fact"><small>Languages</small><span>JavaScript (ES6+), TypeScript, Python</span></div><div class="fact"><small>Thesis</small><span>Deepfake Voice Detection<em>PyTorch &amp; Transformers</em></span></div><div class="fact"><small>Honors</small><span>1st Runner Up ×3<em>Capstone 2024 · CSE Project Show 2023</em></span></div><div class="fact"><small>Based in</small><span>Dhaka, Bangladesh</span></div></div></div></section>
+    <section class="band" id="about"><div class="wrap about-grid"><div><div class="sec-head" style="margin-bottom:26px"><span class="eyebrow">About</span><h2>Clean code across the whole stack</h2></div><p class="about-text">Hands-on experience building scalable <b>REST APIs</b> with <b>Node.js, Express.js</b> and <b>MongoDB</b>, and responsive interfaces with <b>React.js, Next.js</b> and <b>Tailwind CSS</b>, alongside state management and REST API integration. Focused on database optimization, secure authentication with <b>JWT RBAC</b>, and implementing full-stack systems. On the AI/ML side, I build <b>RAG</b> pipelines and multi-agent workflows with <b>LangChain</b> and <b>LangGraph</b>, and work with <b>PyTorch</b> and Transformers, including my thesis on deepfake voice detection. Passionate about writing clean, maintainable code and solving problems across the stack.</p><button class="read-more" type="button" aria-expanded="false">Read more <span>↓</span></button><div class="chips" style="margin-top:24px"><span class="chip">Backend Architecture</span><span class="chip">AI &amp; ML</span><span class="chip">Agentic AI</span><span class="chip">Generative AI</span><span class="chip">System Design</span><span class="chip">API Scalability</span></div></div><div class="facts"><div class="fact"><small>Role</small><span>Frontend Developer<em>Panjeree Publications Ltd. · since 01-09-2026</em></span></div><div class="fact"><small>Education</small><span>B.Sc. in CSE, UIU<em>CGPA 3.16 / 4.00</em></span></div><div class="fact"><small>Languages</small><span>JavaScript (ES6+), TypeScript, Python</span></div><div class="fact"><small>Thesis</small><span>Deepfake Voice Detection<em>PyTorch &amp; Transformers</em></span></div><div class="fact"><small>Honors</small><span>1st Runner Up ×3<em>Capstone 2024 · CSE Project Show 2023</em></span></div><div class="fact"><small>Based in</small><span>Dhaka, Bangladesh</span></div></div></div></section>
 
     <section class="band" id="experience"><div class="wrap"><div class="sec-head"><span class="eyebrow">Experience</span><h2>Where I've been building</h2><p>Production interfaces at Panjeree, with a full-stack foundation behind them.</p></div><div class="timeline">
       <article class="tl-item current open"><div class="tl-top"><div><h3>Frontend Developer</h3><p>Panjeree Publications Ltd. <span class="pill-live">● Current</span></p></div><div class="tl-date">01-09-2026 — Present<br>Dhaka, Bangladesh</div></div><p class="tl-summary">Developed responsive bilingual interfaces using Next.js App Router, React, TypeScript, and next-intl, integrating REST APIs with TanStack Query.</p><div class="exp-details"><ul><li>Built bilingual (Bengali/English) interfaces with locale-based routing and i18n.</li><li>Managed UI state with custom hooks and Redux Toolkit.</li><li>Built atomic, reusable components and typed product/order routes.</li><li>Implemented responsive UI with Tailwind CSS and integrated REST APIs with TanStack Query.</li></ul></div><button class="exp-toggle" type="button" aria-expanded="true"><b>Hide highlights</b> <span>▾</span></button></article>
@@ -761,13 +801,13 @@
       <article class="skill-card"><small>Tools</small><h3>Tools &amp; Workflows</h3><div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Postman</span><span class="chip">MongoDB Compass</span><span class="chip">VS Code</span><span class="chip">WebStorm</span><span class="chip">Kaggle</span></div></article>
     </div></div></section>
 
-    <section class="band" id="contact"><div class="wrap contact-in"><div class="sec-head center"><span class="eyebrow">Contact</span><h2>Let's build something useful together.</h2><p>I'm a Frontend Developer with a Computer Science background and a strong interest in the systems behind polished interfaces, where product intent, API design, data, and intelligent automation meet.</p></div><div class="contact-grid"><div class="contact-copy contact-card"><div class="crow"><span class="c-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span><div class="c-txt"><small>Email</small><a href="mailto:nahimehedi@gmail.com">nahimehedi@gmail.com</a></div><button class="copy-btn" type="button" data-copy="nahimehedi@gmail.com">Copy</button></div><div class="crow"><span class="c-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.3a10 10 0 005.200 5.200l1.300-2 4 1.500v3a2 2 0 01-2.200 2A15.500 15.500 0 014.500 5.700 2 2 0 016.500 3.500z"/></svg></span><div class="c-txt"><small>Phone / WhatsApp</small><a href="tel:+8801531949342">+880 1531949342</a></div><button class="copy-btn" type="button" data-copy="+8801531949342">Copy</button></div><div class="crow"><span class="c-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.200-4-2-6-2.500m12 5v-3.500a3 3 0 00-.8-2.300c2.800-.3 5.800-1.400 5.800-6.200a4.800 4.800 0 00-1.300-3.300 4.500 4.500 0 00-.1-3.300s-1-.3-3.500 1.300a12 12 0 00-6.200 0C6.600 2.100 5.600 2.400 5.600 2.400a4.500 4.500 0 00-.1 3.300A4.800 4.800 0 004.200 9c0 4.800 3 5.900 5.800 6.200a3 3 0 00-.8 2.300V21"/></svg></span><div class="c-txt"><small>GitHub</small><a href="https://github.com/mehedi-nahi" target="_blank" rel="noreferrer">github.com/mehedi-nahi</a></div><a class="copy-btn" href="https://github.com/mehedi-nahi" target="_blank" rel="noreferrer" style="text-decoration:none">Open ↗</a></div><div class="crow" style="border-bottom:0"><span class="c-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.800 7-11a7 7 0 10-14 0c0 5.200 7 11 7 11z"/><circle cx="12" cy="10" r="2.500"/></svg></span><div class="c-txt"><small>Based in</small><strong>Dhaka, Bangladesh</strong></div></div><div class="c-foot"><span class="c-status"><i></i> Open to opportunities</span><a class="c-resume" href="CV-Md_Mehedi_Alam_Nahi.pdf" target="_blank" rel="noreferrer">View resume</a></div></div><form class="contact-form" action="mailto:nahimehedi@gmail.com" method="post" enctype="text/plain"><div class="form-row"><div><label for="name">Your name</label><input id="name" name="name" placeholder="e.g. Sarah Chen"></div><div><label for="email">Email address *</label><input id="email" name="email" type="email" required placeholder="sarah@company.com"></div></div><span class="flabel" id="focusLabel">Inquiry focus</span><div class="focus-chips" role="radiogroup" aria-labelledby="focusLabel"><label class="fchip"><input type="radio" name="focus" value="Frontend Developer Opportunity" checked><span>Frontend role</span></label><label class="fchip"><input type="radio" name="focus" value="Full-stack Collaboration"><span>Full-stack</span></label><label class="fchip"><input type="radio" name="focus" value="AI / RAG Application"><span>AI / RAG</span></label><label class="fchip"><input type="radio" name="focus" value="Project Inquiry"><span>Project</span></label><label class="fchip"><input type="radio" name="focus" value="Something Else"><span>Other</span></label></div><div class="grow"><label for="message">Message *</label><textarea id="message" name="message" required placeholder="Tell me about the opportunity or project..."></textarea></div><button class="send mag" type="submit">Send message <b>→</b></button></form></div></div></section>
+    <section class="band" id="contact"><div class="wrap contact-in"><div class="sec-head center"><span class="eyebrow">Contact</span><h2>Let's build something useful together.</h2><p>I'm a Frontend Developer with a Computer Science background and a strong interest in the systems behind polished interfaces, where product intent, API design, data, and intelligent automation meet.</p></div><div class="contact-grid"><div class="contact-copy contact-card"><div class="crow"><span class="c-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span><div class="c-txt"><small>Email</small><a href="mailto:nahimehedi@gmail.com">nahimehedi@gmail.com</a></div><button class="copy-btn" type="button" data-copy="nahimehedi@gmail.com">Copy</button></div><div class="crow"><span class="c-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.3a10 10 0 005.200 5.200l1.300-2 4 1.500v3a2 2 0 01-2.200 2A15.500 15.500 0 014.500 5.700 2 2 0 016.500 3.500z"/></svg></span><div class="c-txt"><small>Phone / WhatsApp</small><a href="tel:+8801531949342">+880 1531949342</a></div><button class="copy-btn" type="button" data-copy="+8801531949342">Copy</button></div><div class="crow"><span class="c-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.200-4-2-6-2.500m12 5v-3.500a3 3 0 00-.8-2.300c2.800-.3 5.800-1.400 5.800-6.200a4.800 4.800 0 00-1.300-3.300 4.500 4.500 0 00-.1-3.300s-1-.3-3.500 1.300a12 12 0 00-6.200 0C6.600 2.100 5.600 2.400 5.600 2.400a4.500 4.500 0 00-.1 3.300A4.800 4.800 0 004.200 9c0 4.800 3 5.900 5.800 6.200a3 3 0 00-.8 2.300V21"/></svg></span><div class="c-txt"><small>GitHub</small><a href="https://github.com/mehedi-nahi" target="_blank" rel="noreferrer">github.com/mehedi-nahi</a></div><a class="copy-btn" href="https://github.com/mehedi-nahi" target="_blank" rel="noreferrer" style="text-decoration:none">Open ↗</a></div><div class="crow"><span class="c-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.75h4V21H3V9.75zm6.5 0h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.75z" fill="currentColor" stroke="none"/></svg></span><div class="c-txt"><small>LinkedIn</small><a href="https://www.linkedin.com/in/md-mehedi-alam-nahi/" target="_blank" rel="noreferrer">linkedin.com/in/md-mehedi-alam-nahi</a></div><a class="copy-btn" href="https://www.linkedin.com/in/md-mehedi-alam-nahi/" target="_blank" rel="noreferrer" style="text-decoration:none">Open ↗</a></div><div class="crow" style="border-bottom:0"><span class="c-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.800 7-11a7 7 0 10-14 0c0 5.200 7 11 7 11z"/><circle cx="12" cy="10" r="2.500"/></svg></span><div class="c-txt"><small>Based in</small><strong>Dhaka, Bangladesh</strong></div></div><div class="c-foot"><span class="c-status"><i></i> Open to opportunities</span><a class="c-resume" href="CV-Md_Mehedi_Alam_Nahi.pdf" target="_blank" rel="noreferrer">View resume</a></div></div><form class="contact-form" action="mailto:nahimehedi@gmail.com" method="post" enctype="text/plain"><div class="form-row"><div><label for="name">Your name</label><input id="name" name="name" placeholder="e.g. Sarah Chen"></div><div><label for="email">Email address *</label><input id="email" name="email" type="email" required placeholder="sarah@company.com"></div></div><span class="flabel" id="focusLabel">Inquiry focus</span><div class="fsel" id="fsel"><input type="hidden" name="focus" id="focus" value="Frontend Developer Opportunity"><button class="fsel-btn" id="fselBtn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="focusLabel fselVal"><span class="fsel-ic" id="fselIc"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span class="fsel-txt"><strong id="fselVal">Frontend role</strong><small id="fselSub">Hiring or a job opportunity</small></span><svg class="fsel-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><ul class="fsel-list" id="fselList" role="listbox" aria-labelledby="focusLabel" tabindex="-1"><span class="fsel-hl" aria-hidden="true"></span><li role="option" id="fopt0" data-value="Frontend Developer Opportunity" data-title="Frontend role" data-sub="Hiring or a job opportunity" data-ic="0" aria-selected="true"><span class="fo-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span class="fo-txt"><strong>Frontend role</strong><small>Hiring or a job opportunity</small></span><svg class="fo-ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></li><li role="option" id="fopt1" data-value="Full-stack Collaboration" data-title="Full-stack" data-sub="APIs, databases, end to end" data-ic="1" aria-selected="false"><span class="fo-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><span class="fo-txt"><strong>Full-stack</strong><small>APIs, databases, end to end</small></span><svg class="fo-ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></li><li role="option" id="fopt2" data-value="AI / RAG Application" data-title="AI / RAG" data-sub="LLM apps, agents, retrieval" data-ic="2" aria-selected="false"><span class="fo-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></span><span class="fo-txt"><strong>AI / RAG</strong><small>LLM apps, agents, retrieval</small></span><svg class="fo-ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></li><li role="option" id="fopt3" data-value="Project Inquiry" data-title="Project" data-sub="Scope, timeline and estimate" data-ic="3" aria-selected="false"><span class="fo-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2M3 13h18"/></svg></span><span class="fo-txt"><strong>Project</strong><small>Scope, timeline and estimate</small></span><svg class="fo-ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></li><li role="option" id="fopt4" data-value="Something Else" data-title="Something else" data-sub="Or just say hello" data-ic="4" aria-selected="false"><span class="fo-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg></span><span class="fo-txt"><strong>Something else</strong><small>Or just say hello</small></span><svg class="fo-ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></li></ul></div><div class="grow"><label for="message">Message *</label><textarea id="message" name="message" required placeholder="Tell me about the opportunity or project..."></textarea></div><button class="send mag" type="submit">Send message <b>→</b></button></form></div></div></section>
   </main>
   <div class="resume-backdrop" id="resume-viewer" role="dialog" aria-modal="true" aria-labelledby="resume-title">
     <article class="resume-window">
       <div class="resume-toolbar"><div class="resume-file">▣ CV-Md_Mehedi_Alam_Nahi.pdf</div><div class="resume-toolbar-actions"><a href="CV-Md_Mehedi_Alam_Nahi.pdf" target="_blank" rel="noreferrer">Open PDF</a><button class="resume-close" type="button" aria-label="Close resume">×</button></div></div>
       <div class="resume-scroll"><article class="resume-paper">
-        <header><h1 id="resume-title">Md. Mehedi Alam Nahi</h1><div class="resume-contact"><span>GitHub</span><span>LinkedIn</span><span>nahimehedi@gmail.com</span><span>+880 1531949342</span></div></header>
+        <header><h1 id="resume-title">Md. Mehedi Alam Nahi</h1><div class="resume-contact"><span><a href="https://github.com/mehedi-nahi" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:none">GitHub</a></span><span><a href="https://www.linkedin.com/in/md-mehedi-alam-nahi/" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:none">LinkedIn</a></span><span>nahimehedi@gmail.com</span><span>+880 1531949342</span></div></header>
         <div class="resume-rule"></div>
         <section><h2>Summary</h2><p>Hands-on experience building scalable <strong>REST APIs</strong> using <strong>Node.js, Express.js,</strong> and <strong>MongoDB.</strong> Experienced in responsive interfaces with <strong>React.js, Next.js,</strong> and <strong>Tailwind CSS,</strong> alongside state management and REST API integration. Focused on database optimization, secure authentication with <strong>JWT RBAC,</strong> and implementing full-stack systems. Passionate about writing clean, maintainable code and solving problems across the stack.</p></section>
         <section><h2>Work Experience</h2><div class="resume-job"><strong>Frontend Developer, Panjeree Publications Ltd.</strong><span class="resume-date">01-09-2026 – Present</span></div><div class="resume-job"><strong>Trainee Frontend Developer, Panjeree Publications Ltd.</strong><span class="resume-date">01-06-2026 – 31-08-2026</span></div><ul><li>Developed responsive, bilingual frontend interfaces using <strong>Next.js App Router, React,</strong> and <strong>TypeScript,</strong> including i18n with Bengali/English locale-based routing.</li><li>Managed UI state using React useState, custom hooks, and <strong>Redux Toolkit,</strong> and built reusable component architecture based on atomic design principles.</li><li>Created dynamic product/order routes and modeled application data using TypeScript interfaces.</li><li>Implemented responsive UI with Tailwind CSS and integrated REST APIs using <strong>TanStack Query.</strong></li></ul></section>
@@ -789,7 +829,7 @@
   <div class="share" id="share"><div class="share-list"><a class="share-item" data-net="linkedin" data-tip="LinkedIn" style="--i:0" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.75h4V21H3V9.75zm6.5 0h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.75z"/></svg></a><a class="share-item" data-net="x" data-tip="X" style="--i:1" target="_blank" rel="noopener noreferrer" aria-label="Share on X" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-7.2 8.2L23 22h-6.6l-5.2-6.8L5.2 22H2l7.7-8.8L1.5 2h6.7l4.7 6.2L18.9 2zm-1.2 18h1.8L7.3 3.9H5.4L17.7 20z"/></svg></a><a class="share-item" data-net="facebook" data-tip="Facebook" style="--i:2" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8.2h2.8l.5-3.3h-3.3V8.4c0-.95.4-1.7 1.8-1.7h1.6V3.7c-.3 0-1.3-.1-2.4-.1-2.5 0-4.1 1.5-4.1 4.2v2.7H7.6v3.3h2.8V22h3.1z"/></svg></a><a class="share-item stroke" data-net="whatsapp" data-tip="WhatsApp" style="--i:3" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 00-7.8 13.5L3 21l4.6-1.2A9 9 0 1012 3z"/><path d="M9 8.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-.8.7c-.8-.4-1.6-1.2-2-2l.7-.8-1-2L9 8.5z"/></svg></a><button class="share-item stroke" type="button" data-net="copy" data-tip="Copy link" style="--i:4" aria-label="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 005.7 0l2.5-2.5a4 4 0 00-5.7-5.7L11.500 7M14 10a4 4 0 00-5.7 0l-2.5 2.500a4 4 0 005.700 5.700L12.500 17"/></svg></button><button class="share-item stroke" type="button" data-net="native" data-tip="More" style="--i:5" aria-label="More share options" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4m0 0L8 8m4-4l4 4M5 13v6a1 1 0 001 1h12a1 1 0 001-1v-6"/></svg></button></div><button class="share-toggle" id="shareToggle" type="button" aria-expanded="false" aria-label="Share this portfolio"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></svg></button></div>
   <button id="toTop" type="button" aria-label="Back to top">↑</button>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <footer><div class="wrap footer-row"><a class="brand" href="#overview"><span class="brand-mark">MN</span><span class="brand-copy"><strong>Md. Mehedi Alam Nahi</strong></span></a><div class="footer-links"><a href="#experience">Experience</a><a href="#works">Projects</a><a href="#skills">Skills</a><a href="https://github.com/mehedi-nahi" target="_blank" rel="noreferrer">GitHub</a><a href="CV-Md_Mehedi_Alam_Nahi.pdf" target="_blank" rel="noreferrer">Resume</a></div><span class="footer-note">© 2026 Md. Mehedi Alam Nahi</span></div></footer>
+  <footer><div class="wrap footer-row"><a class="brand" href="#overview"><span class="brand-mark">MN</span><span class="brand-copy"><strong>Md. Mehedi Alam Nahi</strong></span></a><div class="footer-links"><a href="#experience">Experience</a><a href="#works">Projects</a><a href="#skills">Skills</a><a href="https://github.com/mehedi-nahi" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/md-mehedi-alam-nahi/" target="_blank" rel="noreferrer">LinkedIn</a><a href="CV-Md_Mehedi_Alam_Nahi.pdf" target="_blank" rel="noreferrer">Resume</a></div><span class="footer-note">© 2026 Md. Mehedi Alam Nahi</span></div></footer>
   <script>
     const $ = (q, c = document) => c.querySelector(q), $$ = (q, c = document) => [...c.querySelectorAll(q)];
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -903,7 +943,7 @@
       const to = +m[1]; let t0;
       el.textContent = '0' + m[2];
       const step = (t) => { const k = Math.min(Math.max((t - t0) / 1400, 0), 1); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))) + m[2]; if (k < 1) requestAnimationFrame(step); };
-      whenReady.then(() => { t0 = performance.now() + 300; requestAnimationFrame(step); });
+      whenReady.then(() => { t0 = performance.now() + 300; requestAnimationFrame(step); setTimeout(() => { el.textContent = to + m[2]; }, 2800); });
     }), { threshold: .6 });
     $$('.stat strong').forEach((el) => countIO.observe(el));
 
@@ -969,6 +1009,37 @@
       catch (e) { toast('Copy failed — please copy manually'); }
     }));
 
+    // inquiry focus: custom animated select
+    (() => {
+      const root = $('#fsel'); if (!root) return;
+      const btn = $('#fselBtn'), list = $('#fselList'), hl = $('.fsel-hl', list), input = $('#focus');
+      const opts = $$('li', list); opts.forEach((o, k) => o.style.setProperty('--k', k));
+      let act = 0;
+      const place = (k) => { act = k; opts.forEach((o, i) => o.classList.toggle('act', i === k)); const o = opts[k]; hl.style.height = o.offsetHeight + 'px'; hl.style.transform = 'translateY(' + o.offsetTop + 'px)'; hl.style.opacity = 1; btn.setAttribute('aria-activedescendant', o.id); };
+      const open = () => {
+        const r = btn.getBoundingClientRect(); root.classList.toggle('up', innerHeight - r.bottom < 330 && r.top > 330);
+        root.classList.add('open'); btn.setAttribute('aria-expanded', 'true');
+        const cur = opts.findIndex((o) => o.getAttribute('aria-selected') === 'true'); requestAnimationFrame(() => place(Math.max(cur, 0)));
+      };
+      const close = () => { root.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); hl.style.opacity = 0; };
+      const choose = (k, silent) => {
+        const o = opts[k]; opts.forEach((x, i) => x.setAttribute('aria-selected', i === k));
+        input.value = o.dataset.value; $('#fselVal').textContent = o.dataset.title; $('#fselSub').textContent = o.dataset.sub; $('#fselIc').innerHTML = $('.fo-ic', o).innerHTML;
+        if (!silent) { const ic = $('#fselIc'); ic.classList.remove('pop'); void ic.offsetWidth; ic.classList.add('pop'); }
+      };
+      btn.addEventListener('click', () => (root.classList.contains('open') ? close() : open()));
+      opts.forEach((o, k) => { o.addEventListener('pointermove', () => place(k)); o.addEventListener('click', () => { choose(k); close(); btn.focus(); }); });
+      btn.addEventListener('keydown', (e) => {
+        const isOpen = root.classList.contains('open');
+        if (['ArrowDown', 'ArrowUp'].includes(e.key)) { e.preventDefault(); if (!isOpen) return open(); place((act + (e.key === 'ArrowDown' ? 1 : opts.length - 1)) % opts.length); }
+        else if (e.key === 'Enter' || e.key === ' ') { if (isOpen) { e.preventDefault(); choose(act); close(); } }
+        else if (e.key === 'Escape' && isOpen) { e.stopPropagation(); close(); }
+        else if (e.key === 'Home' && isOpen) { e.preventDefault(); place(0); } else if (e.key === 'End' && isOpen) { e.preventDefault(); place(opts.length - 1); }
+      });
+      document.addEventListener('pointerdown', (e) => { if (!root.contains(e.target)) close(); });
+      document.addEventListener('setfocus', (e) => { const k = opts.findIndex((o) => o.dataset.value === e.detail); if (k >= 0) choose(k); });
+    })();
+
     // contact form
     const form = $('.contact-form');
     form.addEventListener('submit', (e) => {
@@ -998,9 +1069,10 @@
     const glow = $('#glow');
     if (!reduced && matchMedia('(hover:hover)').matches) {
       let gx = innerWidth / 2, gy = innerHeight / 3, tx = gx, ty = gy;
-      addEventListener('pointermove', (e) => { tx = e.clientX; ty = e.clientY; }, { passive: true });
-      const glide = () => { gx += (tx - gx) * .08; gy += (ty - gy) * .08; glow.style.transform = 'translate3d(' + gx + 'px,' + gy + 'px,0)'; requestAnimationFrame(glide); };
-      glide();
+      let running = false;
+      const glide = () => { gx += (tx - gx) * .08; gy += (ty - gy) * .08; glow.style.transform = 'translate3d(' + gx + 'px,' + gy + 'px,0)'; if (Math.abs(tx - gx) + Math.abs(ty - gy) > .4) requestAnimationFrame(glide); else running = false; };
+      addEventListener('pointermove', (e) => { tx = e.clientX; ty = e.clientY; if (!running) { running = true; requestAnimationFrame(glide); } }, { passive: true });
+      glow.style.transform = 'translate3d(' + gx + 'px,' + gy + 'px,0)';
     }
 
     // hover mask: cursor spotlight on cards
@@ -1082,7 +1154,7 @@
 
     // ask bar: keyword answers from this portfolio, with a hand-off to the contact form
     const prefill = (text, focus) => {
-      $('#message').value = text; if (focus) { const r = $$('input[name="focus"]').find((i) => i.value === focus); if (r) r.checked = true; }
+      $('#message').value = text; if (focus) document.dispatchEvent(new CustomEvent('setfocus', { detail: focus }));
       $('#contact').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' }); setTimeout(() => $('#message').focus({ preventScroll: true }), 600);
     };
     const KB = [
@@ -1095,7 +1167,7 @@
       { k: ['price', 'pricing', 'cost', 'rate', 'quote', 'budget', 'fee', 'charge'], a: 'I do not have a fixed price list. Share your scope in the contact form and I will reply with an estimate.', f: '' },
       { k: ['resume', 'cv'], a: 'You can open my resume from the Resume button at the top of the page.' },
       { k: ['where', 'location', 'based', 'dhaka', 'timezone'], a: 'I am based in Dhaka, Bangladesh.' },
-      { k: ['contact', 'email', 'phone', 'whatsapp', 'reach'], a: 'You can reach me at nahimehedi@gmail.com or on WhatsApp at +880 1531949342.' }
+      { k: ['contact', 'email', 'phone', 'whatsapp', 'reach'], a: 'You can reach me at nahimehedi@gmail.com, on WhatsApp at +880 1531949342, or on LinkedIn at linkedin.com/in/md-mehedi-alam-nahi.' }
     ];
     const ask = $('#ask'), log = $('#askLog'), input = $('#askInput');
     const openAsk = () => ask.classList.add('open'); const closeAsk = () => ask.classList.remove('open');
