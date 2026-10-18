@@ -1126,7 +1126,7 @@
     const lock = () => { document.body.style.overflow = (briefingModal.classList.contains('open') || resumeViewer.classList.contains('open') || xModal.classList.contains('open')) ? 'hidden' : ''; };
     const closeBriefing = () => { briefingModal.classList.remove('open'); lock(); };
     const closeResume = () => { resumeViewer.classList.remove('open'); lock(); };
-    $$('.nav-button.dark').forEach((t) => t.addEventListener('click', (e) => { e.preventDefault(); briefingModal.classList.add('open'); lock(); }));
+    $$('.nav-button.dark:not(.cta-btn)').forEach((t) => t.addEventListener('click', (e) => { e.preventDefault(); briefingModal.classList.add('open'); lock(); }));
     $('.briefing-close', briefingModal).addEventListener('click', closeBriefing);
     briefingModal.addEventListener('click', (e) => { if (e.target === briefingModal) closeBriefing(); });
     $$('a[href$="CV-Md_Mehedi_Alam_Nahi.pdf"]').forEach((t) => { if (!resumeViewer.contains(t)) t.addEventListener('click', (e) => { e.preventDefault(); resumeViewer.classList.add('open'); lock(); }); });
